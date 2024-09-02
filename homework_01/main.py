@@ -20,24 +20,30 @@ EVEN = "even"
 PRIME = "prime"
 
 
-def filter_numbers(lst, type):
+def is_prime(number):
+    flag = True
+    for i in range(2, number):
+        if number % i == 0:
+            flag = False
+            break
+    if flag and number > 1:
+        return number
+
+
+def filter_numbers(lst, filter_type):
     list_res = []
-    if type == "odd":
+    if filter_type == "odd":
         for a in lst:
             if a % 2 == 1:
                 list_res.append(a)
-    elif type == "even":
+    elif filter_type == "even":
         for a in lst:
             if a % 2 == 0:
                 list_res.append(a)
-    elif type == "prime":
-        for a in lst:
-            f = True
-            for i in range(2, a):
-                if a % i == 0:
-                    f = False
-                    break
-            if f == True and a > 1:
-                list_res.append(a)
+    elif filter_type == "prime":
+        for number in lst:
+            is_prime_value = is_prime(number)
+            if is_prime_value is not None:
+                list_res.append(is_prime_value)
 
     return list_res
