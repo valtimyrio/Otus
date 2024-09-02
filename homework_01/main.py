@@ -24,10 +24,11 @@ def is_prime(number):
     flag = True
     for i in range(2, number):
         if number % i == 0:
-            flag = False
-            break
-    if flag and number > 1:
-        return number
+            return False
+    if number > 1:
+        return True
+    else:
+        return False
 
 
 def filter_numbers(lst, filter_type):
@@ -42,8 +43,8 @@ def filter_numbers(lst, filter_type):
                 list_res.append(a)
     elif filter_type == "prime":
         for number in lst:
-            is_prime_value = is_prime(number)
-            if is_prime_value is not None:
-                list_res.append(is_prime_value)
+            bool_is_prime = is_prime(number)
+            if bool_is_prime:
+                list_res.append(number)
 
     return list_res
