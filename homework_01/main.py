@@ -21,7 +21,6 @@ PRIME = "prime"
 
 
 def is_prime(number):
-    flag = True
     for i in range(2, number):
         if number % i == 0:
             return False
@@ -34,13 +33,13 @@ def is_prime(number):
 def filter_numbers(lst, filter_type):
     list_res = []
     if filter_type == "odd":
-        for a in lst:
-            if a % 2 == 1:
-                list_res.append(a)
+        for number in lst:
+            if number % 2 == 1:
+                list_res.append(number)
     elif filter_type == "even":
-        for a in lst:
-            if a % 2 == 0:
-                list_res.append(a)
+        for number in lst:
+            if number % 2 == 0:
+                list_res.append(number)
     elif filter_type == "prime":
         for number in lst:
             bool_is_prime = is_prime(number)
